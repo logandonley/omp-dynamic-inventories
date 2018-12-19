@@ -78,13 +78,13 @@ class Inventory(object):
                     "members": members
                 })
 
-        identity = {
+        identities = {
             "ansible_connection": "local",
-            "identity": identity_data
+            "identities": identity_data
         }
 
         self.inventory = {
-            'identity-hosts': {"hosts": ["localhost"], "vars": identity}}
+            'identity-hosts': {"hosts": ["localhost"], "vars": identities}}
 
     def handle_host(self):
         self.inventory.update(
