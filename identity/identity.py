@@ -56,7 +56,7 @@ class Inventory(object):
                 identity_data['users'].append({
                     "first_name": self.check_if_valid(user, 'first_name'),
                     "last_name": self.check_if_valid(user, 'last_name'),
-                    "user_name": self.check_if_valid(user, 'user_name'),
+                    "user_name": self.check_if_valid(user, 'email').split('@')[0],
                     "email": self.check_if_valid(user, 'email'),
                     "targets": self.check_if_valid(user, 'identity_providers'),
                     "tags": self.check_if_valid(user, 'tags')
