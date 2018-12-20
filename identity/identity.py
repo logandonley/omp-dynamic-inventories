@@ -35,8 +35,6 @@ class Inventory(object):
 
         if self.args.list:
             self.handle_list()
-        elif self.args.host != None:
-            self.handle_host()
 
         print(json.dumps(self.inventory))
 
@@ -79,16 +77,11 @@ class Inventory(object):
                 })
 
         identities = {
-            "ansible_connection": "local",
             "identities": identity_data
         }
 
         self.inventory = {
-            'identity-hosts': {"hosts": ["localhost"], "vars": identities}}
-
-    def handle_host(self):
-        self.inventory.update(
-            {"_meta": {"hostvars": {'127.0.0.1': {'var2': 'bar'}}}})
+            'all': {"vars": identities}}
 
     def check_if_valid(self, dictionary, value, value_type='string'):
         if value in dictionary.keys():
