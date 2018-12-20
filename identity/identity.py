@@ -18,7 +18,8 @@ except ImportError:
 # IDENTITY_PROVIDERS - The list of identity providers you want to populate users for. (example: IDENTITY_PROVIDERS=atlassian,idm)
 api_url = os.environ['API_URL']
 my_tag = os.environ['TAG']
-identity_provider_list = os.environ['IDENTITY_PROVIDERS'].split(',')
+identity_provider_list = os.environ.get(
+    'IDENTITY_PROVIDERS', 'atlassian,idm').split(',')
 
 # If desired, you can set a different endpoint using these environment variables.
 users_url = api_url + os.environ.get("USERS_ENDPOINT", "/users")
