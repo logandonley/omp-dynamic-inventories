@@ -94,7 +94,7 @@ class Inventory(object):
 
     def parse_cli_args(self):
         parser = argparse.ArgumentParser(
-            description='Produce an Ansible Inventory from a file')
+            description='Produce an Ansible Inventory for Identities')
         parser.add_argument('--list', action='store_true')
         parser.add_argument('--host', action='store')
         self.args = parser.parse_args()
